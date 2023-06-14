@@ -156,3 +156,40 @@ function segundoMaior(valores) {
 segundoMaior(valores)
 
 //10
+
+
+function melhoresAlunos(estudantes) {
+  let melhorAluno = null;
+  let melhorMedia = 0;
+
+  for (let i = 0; i < estudantes.length; i++) {
+    const aluno = estudantes[i];
+    const media = calcularMedia(aluno.notas);
+
+    if (media > melhorMedia) {
+      melhorAluno = aluno.nome;
+      melhorMedia = media;
+    }
+  }
+console.log(`{nome: "${melhorAluno}", media: ${melhorMedia}}`)
+}
+
+function calcularMedia(notas) {
+  const somaNotas = notas.reduce((total, nota) => total + nota, 0);
+  return somaNotas / notas.length;
+}
+const estudantes = [
+  {
+    nome: 'Augusto',
+    notas: [6, 5, 3, 7, 9]
+  },
+  {
+    nome: 'Carlinhos',
+    notas: [1, 3, 10, 10, 10]
+  },
+  {
+    nome: 'Pedro',
+    notas: [6, 8, 7, 7, 8]
+  }
+];
+melhoresAlunos(estudantes);
